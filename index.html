@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Lecteur Landifornia</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      text-align: center;
+      padding-top: 100px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    #playPauseBtn {
+      width: 200px; /* on élargit pour que le texte tienne bien */
+      height: 40px;
+      background: linear-gradient(to right, #6a0dad, #8a2be2); /* dégradé violet */
+      color: white;
+      border: 2px solid orange;
+      border-radius: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.1s;
+    }
+
+    #playPauseBtn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <button id="playPauseBtn">Écoutez maintenant !  ▶</button>
+
+  <audio id="radio" src="https://solid55.streamupsolutions.com/proxy/roxnnbia/stream"></audio>
+
+  <script>
+    const radio = document.getElementById("radio");
+    const btn = document.getElementById("playPauseBtn");
+
+    btn.addEventListener("click", () => {
+      if (radio.paused) {
+        radio.play();
+        btn.textContent = "Pause  ⏸";
+      } else {
+        radio.pause();
+        btn.textContent = "Écoutez maintenant !  ▶";
+      }
+    });
+  </script>
+
+</body>
+</html>
